@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8x7y9z0a1b2c3d6"]
+
+[ext_resource type="Script" path="res://scripts/NetworkHandler.gd" id="1_0x8k2"]
+[ext_resource type="Script" path="res://scripts/MultiplayerSpawner.gd" id="2_1x9l3"]
+[ext_resource type="PackedScene" path="res://LoafbrrAssets/ModularWoodStructures/scenes/Builds/build_1.tscn" id="3_2x0m4"]
+
+[node name="MultiplayerGame" type="Node3D"]
+
+[node name="NetworkHandler" type="Node" parent="."]
+script = ExtResource("1_0x8k2")
+
+[node name="MultiplayerSpawner" type="Node" parent="."]
+script = ExtResource("2_1x9l3")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Build1" parent="Environment" instance=ExtResource("3_2x0m4")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 10, 0)
+light_energy = 1.0

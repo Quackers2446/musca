@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8x9y2z1a3b4c"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_0x1y2"]
+[ext_resource type="PackedScene" path="res://assets/fly/scene.gltf" id="2_3x4y5"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_0x1y2")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.2, 1)
+
+[node name="FlyModel" type="Node3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="FlyMesh" parent="FlyModel" instance=ExtResource("2_3x4y5")]
+
+[node name="Camera3D" type="Camera3D" parent="FlyModel"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 3)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="FlyModel"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 5, 0)
+light_energy = 1.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Title" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = -150.0
+text = "FLY SIMULATOR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="StartButton" type="Button" parent="UI/ButtonContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="CreateRoomButton" type="Button" parent="UI/ButtonContainer"]
+layout_mode = 2
+text = "Host Server"
+
+[node name="JoinRoomButton" type="Button" parent="UI/ButtonContainer"]
+layout_mode = 2
+text = "Join Server"

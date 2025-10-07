@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bybml8q8gjo7v"]
+
+[ext_resource type="PackedScene" path="res://scenes/Fly.tscn" id="1_0x1y2"]
+[ext_resource type="PackedScene" path="res://LoafbrrAssets/ModularWoodStructures/scenes/Builds/build_2.tscn" id="2_3x4y5"]
+[ext_resource type="Script" path="res://scripts/EnsureCollision.gd" id="3_6x7y8"]
+
+[node name="SimpleTest" type="Node3D"]
+script = ExtResource("3_6x7y8")
+
+[node name="Fly" parent="." instance=ExtResource("1_0x1y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Build1" parent="." instance=ExtResource("2_3x4y5")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 10, 0)
+light_energy = 1.0
+shadow_enabled = true
